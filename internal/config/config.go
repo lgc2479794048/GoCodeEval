@@ -12,13 +12,6 @@ type Config struct {
 		Port string `yaml:"port"`
 		Mode string `yaml:"mode"`
 	} `yaml:"server"`
-	Database struct {
-		Host     string `yaml:"host"`
-		Port     int    `yaml:"port"`
-		Username string `yaml:"username"`
-		Password string `yaml:"password"`
-		Name     string `yaml:"name"`
-	} `yaml:"database"`
 }
 
 // NewConfig reads configuration from the given filename and returns a Config object
