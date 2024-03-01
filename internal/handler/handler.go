@@ -3,7 +3,9 @@ package handler
 import (
 	"GoCodeEval/internal/model"
 	"GoCodeEval/internal/service"
+	"GoCodeEval/pkg/database"
 	"GoCodeEval/pkg/response"
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -16,7 +18,8 @@ func RegisterHandler(c *gin.Context) {
 		response.Error(c, http.StatusBadRequest, err.Error())
 		return
 	}
-
+	db, err := database.InitializeDB()
+	fmt.Println(db.Config, err)
 	authService := service.NewAuthService()
 	user, err := authService.Register(&req)
 	if err != nil {
